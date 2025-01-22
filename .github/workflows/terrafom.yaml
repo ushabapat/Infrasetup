@@ -46,4 +46,4 @@ jobs:
 
     - name: 'Terraform Apply'
       run: terraform apply --var-file="${{ github.workspace }}/terraform-project/environment/${{ env.TF_ENV }}.tfvars" -auto-approve
-}
+
