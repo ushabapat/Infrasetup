@@ -32,8 +32,8 @@ jobs:
     - name: 'Terraform Validate'
       run: terraform validate
 
-    - name: List directory structure
-      run: ls -R /home/runner/work/Infrasetup/terraform-project/environment
+    - name:  directory structure
+      run:  cd /home/runner/work/Infrasetup/terraform-project/environment
 
     - name: 'Terraform Plan'
       run: terraform plan -var-file="${{ env.TF_ENV }}.tfvars"
