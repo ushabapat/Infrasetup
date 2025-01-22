@@ -26,6 +26,9 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         auth-type: 'SERVICE_PRINCIPAL'
         
+    - name: Change to Terraform directory
+      run: cd /home/runner/work/Infrasetup/Infrasetup/terraform-project/
+        
     - name: 'Terraform Init'
       run: terraform init
 
@@ -43,8 +46,4 @@ jobs:
 
     - name: 'Terraform Apply'
       run: terraform apply --var-file="${{ github.workspace }}/terraform-project/environment/${{ env.TF_ENV }}.tfvars" -auto-approve
-      env:
-        ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-        ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-        ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-        ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+}
