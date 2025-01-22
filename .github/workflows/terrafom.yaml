@@ -11,6 +11,8 @@ on:
 jobs:
   infrasetup:
     runs-on: ubuntu-latest
+    env:
+      TF_ENV: dev
     steps:
     - name: 'Checkout GitHub Action'
       uses: actions/checkout@v2
@@ -31,7 +33,7 @@ jobs:
       run: terraform validate
 
     - name: 'Terraform Plan'
-      run: terraform plan
+      run: terraform plan -var-file="${{ env.TF_ENV }}.tfvars"
 
     - name: 'Terraform Apply'
       run: terraform apply -auto-approve
