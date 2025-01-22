@@ -36,6 +36,7 @@ jobs:
 
     - name: 'Terraform Validate'
       run: terraform validate
+      working-directory: /home/runner/work/Infrasetup/Infrasetup/terraform-project/
 
     - name: Change to Terraform directory
       run: cd /home/runner/work/Infrasetup/Infrasetup/terraform-project/
@@ -45,7 +46,9 @@ jobs:
 
     - name: 'Terraform Plan'
       run: terraform plan --var-file="${{ github.workspace }}/terraform-project/environment/${{ env.TF_ENV }}.tfvars"
+      working-directory: /home/runner/work/Infrasetup/Infrasetup/terraform-project/
 
     - name: 'Terraform Apply'
       run: terraform apply --var-file="${{ github.workspace }}/terraform-project/environment/${{ env.TF_ENV }}.tfvars" -auto-approve
+      working-directory: /home/runner/work/Infrasetup/Infrasetup/terraform-project/
 
