@@ -33,7 +33,7 @@ jobs:
       run: terraform validate
 
     - name: Change to Terraform directory
-      run: pwd
+      run: cd /home/runner/work/Infrasetup/Infrasetup/terraform-project/
 
     - name: 'Terraform Plan'
       run: terraform plan --var-file="${{ github.workspace }}/terraform-project/environment/${{ env.TF_ENV }}.tfvars"
