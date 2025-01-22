@@ -36,10 +36,10 @@ jobs:
       run:  ls -alh "${{ github.workspace }}/terraform-project/environment"
 
     - name: 'Terraform Plan'
-      run: terraform plan -var-file="${{ github.workspace }}/terraform-project/environment/${{ env.TF_ENV }}.tfvars"
+      run: terraform plan --var-file="${{ github.workspace }}/terraform-project/environment/${{ env.TF_ENV }}.tfvars"
 
     - name: 'Terraform Apply'
-      run: terraform apply -auto-approve
+      run: terraform apply --var-file="${{ github.workspace }}/terraform-project/environment/${{ env.TF_ENV }}.tfvars" -auto-approve
       env:
         ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
         ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
