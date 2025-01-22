@@ -66,3 +66,22 @@ Directory Structure
 │   ├── dev.tfvars
 
 │   ├── prod.tfvars
+
+
+
+Applying the Configuration
+
+	1.	Initialize Terraform:
+
+terraform init
+terrform fmt
+terraform validate
+teraform refresh
+
+	2.	Plan and Apply for the Development Environment:
+
+
+
+terraform plan -var-file="environments/dev.tfvars"
+
+terraform apply -var-file="environments/dev.tfvars"
