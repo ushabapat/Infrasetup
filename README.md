@@ -85,3 +85,14 @@ teraform refresh
 terraform plan -var-file="environments/dev.tfvars"
 
 terraform apply -var-file="environments/dev.tfvars"
+
+
+Create the Azure credentials secret with json format
+
+{
+  "clientId": "xxxxxxxxxxxxxxx",
+  "clientSecret": "xxxxxxxxxxxxxxxxxxxxxxxx",
+  "subscriptionId": "xxxxxxxxxxxxxxxxxxxxxxx",
+  "tenantId": "xxxxxxxxxxxxxxxxxxxxxxxx"
+
+}
