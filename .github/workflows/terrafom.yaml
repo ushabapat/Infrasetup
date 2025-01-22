@@ -26,11 +26,13 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
         auth-type: 'SERVICE_PRINCIPAL'
         
-    - name: Change to Terraform directory
-      run: cd /home/runner/work/Infrasetup/Infrasetup/terraform-project/
-        
-    - name: 'Terraform Init'
+    - name: List Terraform directory contents
+      run: ls -la /home/runner/work/Infrasetup/Infrasetup/terraform-project/
+      working-directory: /home/runner/work/Infrasetup/Infrasetup/terraform-project/
+
+    - name: Initialize Terraform
       run: terraform init
+      working-directory: /home/runner/work/Infrasetup/Infrasetup/terraform-project/
 
     - name: 'Terraform Validate'
       run: terraform validate
