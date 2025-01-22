@@ -32,9 +32,6 @@ jobs:
     - name: 'Terraform Validate'
       run: terraform validate
 
-    - name:  directory structure
-      run:  ls -alh "${{ github.workspace }}/terraform-project/environment"
-
     - name: 'Terraform Plan'
       run: terraform plan --var-file="${{ github.workspace }}/terraform-project/environment/${{ env.TF_ENV }}.tfvars"
 
